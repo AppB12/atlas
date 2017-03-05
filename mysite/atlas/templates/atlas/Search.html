@@ -1,0 +1,187 @@
+{% extends 'atlas/header.html' %}
+
+{% block title %}ATLAS -  Automated Lexical Analysis Software| Search{% endblock %}
+
+{% load staticfiles %}
+{% csrf_token %}
+
+
+{% block content %}
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">Search</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="/home/">Home</a>&nbsp;&nbsp;</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6">
+                                 <h4>Search keyword: &nbsp; <input type="text" name="searchterm" id="search-query"/></h4>
+                            </div>
+                            <div class="col-lg-2"><a class="btn btn-default btn-block btn-sm" id="search-query-submit">Search</a></div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+                                 <h4>Last Refreshed   : &nbsp;</h4>
+                            </div>
+                            <div class="col-lg-4">
+                                <span id="last-refreshed"></span>
+                            </div>
+                            <div class="col-lg-2">
+                                <a class="btn btn-default btn-block btn-sm" id="refresh-data">Refresh Data</a>
+                            </div>
+
+                            <div class="col-lg-2"></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <br/><br/>
+                        <br/><br/>
+
+                        <div class="row hidden" id="create-request">
+                            <div class="col-lg-12">
+                                <h5>We cannot find any data for the query you made, to raise a request click <span style="text-decoration: underline;"><a href="/requests/" id="make-request" target="_blank">here</a></span>.</h5>
+                            </div>
+                        </div>
+                    </div><!--END PANEL BODY -->
+                </div><!--END PANEL PANEL DEFAULT -->
+            </div><!--END COL-LG-12 -->
+        </div><!--END ROW -->
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="main-panel">
+                        <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12"  style="text-align: center;border:1px solid #dbd8d2;padding-top: 10px;padding-bottom:10px; background-color: #77787a; color: white">
+                                Choose the type of Analysis
+                            </div>
+
+
+                        </div><!--END ROW -->
+
+                        <div class="row">
+                            <br/>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a class="btn btn-default btn-block btn-sm disabled dashboard" id="sentiment" href="/sentiment/" target="_blank">Sentiment Analysis</a>​
+                            </div>
+
+                            <div class="col-lg-6">
+                                <button type="button" class="btn btn-default btn-block btn-sm disabled dashboard" >Mood/Opinion Analysis</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <button type="button" class="btn btn-default btn-block btn-sm disabled dashboard" >Key Strengths/Weakness</button>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <button type="button" class="btn btn-default btn-block btn-sm disabled dashboard" >Triggers/Drivers</button>
+                            </div>
+                        </div><!--END ROW -->
+
+                        <div class="row">
+                            <br/>
+                        </div>
+
+                    </div><!--END COL-LG-12 -->
+                    </div><!--END PANEL BODY -->
+                </div><!--END PANEL PANEL DEFAULT -->
+            </div><!--END COL-LG-12 -->
+
+        </div><!--END ROW -->
+    </div>
+    <!--END CONTENT-->
+
+    <!--BEGIN FOOTER-->
+    <div id="footer">
+        <div class="copyright">
+        </div>
+    </div>
+    <!--END FOOTER-->
+</div>
+
+{% endblock %}
+
+{% block imports %}
+    <script src="{% static 'atlas/script/search.js' %}"></script>
+    <script src="{% static 'atlas/script/url_utils.js' %}"></script>
+    <script type="text/javascript">
+        //var js_list = "{{dict|safe}}";
+        //var json_string = unescape({{json_list|safe|escape}});
+        //console.log(json_string);
+        //console.log(js_list);
+
+
+
+        var productList = [];
+        /*
+        ls = (Object.keys({{dict_time|safe}}));
+        ts = (Object.values({{dict_time|safe}}));
+        obj = JSON.stringify({{dict_time|safe}})
+        //console.log(obj)
+        obj = JSON.parse(obj)
+        //console.log(obj)
+        for ( i in ls ) {
+            val = obj[ls[i]]
+            console.log(val)
+        }
+        */
+
+        var createAutoCompleteListFromProductList = function(productList) {
+            var autoCompleteList = [];
+
+            for (var i in productList) {
+                autoCompleteList.push(productList[i].name)
+            }
+            $( "#search-query" ).autocomplete({
+                source: autoCompleteList
+            });
+        };
+
+        $.get('/service/product_list/').then(function (successResponse) {
+            productList = JSON.parse(successResponse);
+            autoLs = createAutoCompleteListFromProductList(productList)
+            console.log(productList)
+
+        }, function (errorResponse) {
+
+        });
+
+        $("#search-query").change(function() {
+             console.log( "Handler for .change() called." );
+             tag = $('#search-query').val();
+             console.log('Product', tag);
+             for (i in productList){
+                if(productList[i]["name"] == tag){
+                    $("#last-refreshed").text(productList[i]["lastUpdated"])
+                    console.log(productList[i]["lastUpdated"])
+                }
+             }
+        });
+
+
+
+    </script>
+{% endblock %}
