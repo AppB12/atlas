@@ -25,6 +25,7 @@ def raiseRequest(request, refreshStatus):
     status = 'Pending'
     df = pd.read_csv(dbConfig.dict["requestUrl"])
     if refreshStatus:
+        print refreshStatus
         if ((df['reqStatus'] == 'Pending') & (df['reqKw'] == request)).any():
             responseObject["message"] = "Conflict: A pending/processing entry for the product already exists"
             responseObject["status"] = 409
