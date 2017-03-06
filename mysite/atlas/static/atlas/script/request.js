@@ -1,6 +1,7 @@
 (function(){
     console.log("LOADING REQUEST JS")
     var request = window.urlUtils.getQueryParameter(window.location.href, 'request');
+    console.log("Request = " , request)
     $('#reqKW').val(request);
     $.get('/service/request/').then(function (successResponse) {
         console.log('Stringify successResponse', JSON.stringify(successResponse,null, 2));
@@ -49,9 +50,11 @@
         var url= null;
 
         if(refresh) {
+            console.log("PUT CALL");
             type='PUT';
-            url = "/service/product/" + request + '/refresh'
+            url = "/service/product/" + encodeURI(request) + '/refresh'
         } else {
+            console.log("POST CALL");
             type= 'POST';
             url = "/service/product/add"
         }
@@ -68,7 +71,7 @@
             failure: function(response) {
                 alert("Failure")
             }
-        })
+        });
         console.log("ajax call request = ", request)
     });
 
