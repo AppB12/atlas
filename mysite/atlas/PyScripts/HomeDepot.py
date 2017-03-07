@@ -16,8 +16,6 @@ pagination = []  # Holds list of all Result pages
 has_next_page = False  # If current page HAS a next page (for PRODUCTS)
 links_list = []  # Holds links to all products on current Result page
 all_links_list = []  # Holds links of all products through all pages
-abbreviated_reviews_list = []  # List of abbreviated reviews of current product
-final_reviews_list = []  # Holds all reviews of current product
 is_last_page = True  # If current page IS the last page (for REVIEWS)
 all_reviews = []  # Holds all reviews of one product (iteration)
 all_kw_all_rev = []  # Holds all reviews of all products/keywords
@@ -56,33 +54,9 @@ def link_scraper():
 ###################################################################
 
 
-# To remove HTML tags present in the abbreviated reviews list (obtained when fetching full text)
-def clean_abbr_reviews(abbreviated_reviews_list1):
-    global abbreviated_reviews_list, final_reviews_list
-    for s in range(len(abbreviated_reviews_list1)):
-        temp_str = ''
-        str1 = abbreviated_reviews_list1[s]
-        start_index = []
-        end_index = []
-
-        # To store start index and end index in order to select and remove substring containing only full text of review
-        for m in re.finditer('<span class="BVRRReviewText">', str1):
-            start_index.append(m.start())
-        for m in re.finditer('</span>', str1):
-            end_index.append(m.end())
-        for n in range(len(start_index)):
-            str2 = str1[start_index[n]+29:end_index[n]-7]  # 29 characters in opening tag and 7 characters in closing tag (Character at start index is included, character at end index is excluded)
-            temp_str += " " + str2
-        abbreviated_reviews_list1[s] = temp_str
-    abbreviated_reviews_list = abbreviated_reviews_list1
-    return abbreviated_reviews_list
-
-###################################################################
-
-
 # To fetch all reviews of the current product
 def get_reviews(curr_link):
-    global all_reviews, abbreviated_reviews_list, final_reviews_list, has_next_page, is_last_page, browser
+    global all_reviews, has_next_page, is_last_page, browser
 
     browser.get(curr_link)  # Navigate to link
     time.sleep(5)
@@ -142,53 +116,11 @@ def get_reviews(curr_link):
                 user_name = browser.find_elements_by_class_name("BVRRNickname")
                 review_title = browser.find_elements_by_class_name("BVRRReviewTitleContainer")
                 review_date = browser.find_elements_by_class_name("BVRRReviewDateContainer")
-                review_text = browser.find_elements_by_class_name("BVRRReviewTextContainer")  # Contains abbreviated versions of review texts (if any)
+                review_text = browser.find_elements_by_xpath("//span[@class='BVRRReviewText']")
 
                 print "Total reviews on this page: ", len(review_text)
                 logging.info("Total reviews on this page: " + str(len(review_text)))
 
-                flag = 0  # To indicate if abbreviated reviews are present or not
-
-                # To extract all abbreviated reviews' content in full (if any), and store in (subset) array
-                abbreviated_reviews_list = []
-                for r in review_text:  # Loop through each review fetched on the current Review page
-                    if "Read More" in r.text[-9:]:  # If 'Read More' is present at the end of the text
-                        flag = 1  # Flag made 1 when abbreviated text found
-
-                        div_elems = browser.find_elements_by_xpath("//div[@class='BVRRReviewText BVDIHidden']")  # Contains only abbreviated reviews' full text
-
-                        print "No. of abbreviated reviews on this Review page: ", len(div_elems)
-                        logging.info("No. of abbreviated reviews on this Reviews page: " + str(len(div_elems)))
-
-                        for e in div_elems:
-                            abbreviated_reviews_str = e.get_attribute("innerHTML")
-                            abbreviated_reviews_list.append(abbreviated_reviews_str)
-
-                        # To remove HTML tags and fetch only text content
-                        abbreviated_reviews_list = clean_abbr_reviews(abbreviated_reviews_list)
-                        break
-
-                k = len(final_reviews_list)  # Index of latest review fetched
-
-                # Separate array is used to store final list of reviews for the product (for easier manipulation)
-
-                # If abbreviated reviews are present on this page, store their full text instead
-                if flag == 1:
-                    j = 0  # Index for abbreviated_reviews_list
-
-                    for r1 in range(0, len(review_text)):  # Loop through each review fetched from current Review page
-                        if "Read More" in review_text[r1].text[-9:]:  # If it's an abbreviated review, store its full text
-                            final_reviews_list.append(abbreviated_reviews_list[j])
-                            j += 1  # Increment index
-                        else:  # If review is not abbreviated, store it as is
-                            final_reviews_list.append(review_text[r1].text)
-
-                # If no abbreviated reviews are present on this page, then simply copy the reviews into final_reviews_list
-                else:
-                    for r1 in range(0, len(review_text)):
-                        final_reviews_list.append(review_text[r1].text)
-
-                # Reviews are ready.
                 # Create a data frame for each review and append it to a main data frame
                 print "Appending all the fetched reviews..."
                 logging.info("Appending all the fetched reviews...")
@@ -204,7 +136,7 @@ def get_reviews(curr_link):
                                                    'rRating': [rating_value],
                                                    'rTitle': [review_title[i].text],
                                                    'rDate': [review_date[i].text],
-                                                   'rText': [final_reviews_list[k]],
+                                                   'rText': [review_text[i].get_attribute("innerText")],
                                                    'pURL': [curr_link]}, index=[0])
                         k += 1  # Increment index of latest fetched review
                         all_reviews = all_reviews.append(one_review)
@@ -568,7 +500,8 @@ def home_depot_prod_info(keywords_list):
 
         print "Scraper finished at... ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
         logging.info("Scraper finished at... " + datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p"))
-
+        
+        '''
         # Saving the CSV file with product information and reviews; one CSV for each product/keyword
         curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
         temp_keyword = keywords_list[i].replace(" ", "")
@@ -577,3 +510,4 @@ def home_depot_prod_info(keywords_list):
         prods_info.to_csv(full_path, index=False, encoding='utf-8')
         print "CSV file for this product saved at location: " + full_path
         logging.info("CSV file for this product saved at location: " + full_path)
+        '''
