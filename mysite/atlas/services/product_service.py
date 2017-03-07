@@ -18,6 +18,7 @@ def fetchRequests():
 def raiseRequest(request, refreshStatus):
     responseObject = {}
     keyObject = ["message", "status", "body"]
+    curTime = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M:%S %p")
     for i in keyObject:
         responseObject[i] = None
 
@@ -31,12 +32,12 @@ def raiseRequest(request, refreshStatus):
             responseObject["status"] = 409
             responseObject["body"] = request
             return responseObject
+        df.ix[(df.reqStatus == 'Completed') & (df.reqKw == request), 'reqTime'] = curTime
         df.ix[(df.reqStatus == 'Completed') & (df.reqKw == request), 'reqStatus'] = status
-        with open(r'C:\\Users\\neo\\Documents\\django-atlas\\mysite\\atlas\\database\\request.csv', 'w') as f:
+        with open(dbConfig.dict["requestUrl"], 'w') as f:
             (df).to_csv(f, index=False)
         f.close()
     else:
-        curTime = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M:%S %p")
         # df.to_csv("C:\\Users\\akshat.gupta\\Documents\\django-atlas\\mysite\\atlas\\database\\request.csv", mode='a', index=False, sep=',', header=False)
         data = np.array([[request, curTime, status]])
         df1 = pd.DataFrame(data, columns=columns, index=[len(df)])

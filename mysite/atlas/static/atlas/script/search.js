@@ -16,14 +16,14 @@
         $.get('/service/product?query=' + query).then(function (successResponse) {
             console.log('successResponse', successResponse);
             $('#refresh-data').removeClass('hidden');
-            $('#refresh-data').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=True')
+            $('#refresh-data').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=true')
             activateDashboard(JSON.parse(successResponse).analyticData, query)
         }, function (errorResponse) {
             console.log('errorResponse', errorResponse);
             if (errorResponse.status == "404") {
                 console.log("Changing search value button to submit");
                 $('#create-request').removeClass('hidden');
-                $('#create-request #make-request').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=False')
+                $('#create-request #make-request').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=false')
             }
         });
     });

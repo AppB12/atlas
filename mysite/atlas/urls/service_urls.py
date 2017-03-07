@@ -21,7 +21,7 @@ from atlas import views
 urlpatterns = [
     url(r'^product/$', views.searchQuery),
     url(r'^product/add$', views.addProduct),
-    url(r'^product/(\w+)/refresh$', views.refreshProduct),
+    url(r'^product/(\w+\s*\w*)/refresh$', views.refreshProduct),
     url(r'^request/$', views.getRequests),
     url(r'^product_list/$', views.getAutoCompleteList),
 

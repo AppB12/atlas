@@ -2,39 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61fc945b-42ef-496f-aead-88dd149fead4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_01March2017_051059PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_01March2017_051100PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_02March2017_030820PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_02March2017_054635PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_02March2017_054844PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_03March2017_011347PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_04March2017_013948PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/ATLAS_28February2017_033215PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonI_TV_02March2017_054633PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonI_TV_03March2017_011346PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonI_fridge_04March2017_013948PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonI_headphone_28February2017_033215PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonI_lawnmower_01March2017_051059PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonI_lawnmower_01March2017_051100PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonProdsInfo_TV_02March2017_054633PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonProdsInfo_TV_03March2017_011346PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonProdsInfo_fridge_04March2017_013948PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonProdsInfo_headphone_28February2017_033215PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonProdsInfo_lawnmower_01March2017_051059PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/Amazon_I/AmazonProdsInfo_lawnmower_01March2017_051100PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_TV_02March2017_054529PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_TV_02March2017_054833PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_TV_03March2017_011212PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot__02March2017_030816PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_fridge_04March2017_013914PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_headphone_28February2017_033125PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_lawnmower_01March2017_051026PM.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysite/atlas/PyScripts/Outputs/HomeDepot/HomeDepot_lawnmower_01March2017_051038PM.csv" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/django-atlas.iml" afterPath="$PROJECT_DIR$/.idea/django-atlas.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/config/dbConfig.py" afterPath="$PROJECT_DIR$/mysite/atlas/config/dbConfig.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/database/request.csv" afterPath="$PROJECT_DIR$/mysite/atlas/database/request.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/services/product_service.py" afterPath="$PROJECT_DIR$/mysite/atlas/services/product_service.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js" afterPath="$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js" afterPath="$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/debug.log" afterPath="$PROJECT_DIR$/mysite/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html" afterPath="$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/atlas/urls/service_urls.py" afterPath="$PROJECT_DIR$/mysite/atlas/urls/service_urls.py" />
     </list>
     <ignored path="django-atlas.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,6 +23,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -55,65 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/views.py">
+      <file leaf-file-name="Search.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service_urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/service_urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-              <folding>
-                <element signature="e#640#680#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/view_urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="url_utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/url_utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="19" column="55" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="55" />
+            <state relative-caret-position="153">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -122,8 +46,8 @@
       <file leaf-file-name="product_service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/atlas/services/product_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="850">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -131,31 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbConfig.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dbConfig.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysite/atlas/config/dbConfig.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="98" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="url_mounts.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/url_mounts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Search.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+            <state relative-caret-position="119">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -212,18 +116,18 @@
         <option value="$PROJECT_DIR$/mysite/atlas/templates/atlas/Sentiment.html" />
         <option value="$PROJECT_DIR$/mysite/atlas/templates/atlas/header.html" />
         <option value="$PROJECT_DIR$/mysite/atlas/urls/view_urls.py" />
-        <option value="$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html" />
         <option value="$PROJECT_DIR$/mysite/mysite/settings.py" />
         <option value="$PROJECT_DIR$/mysite/config/dbConfig.py" />
         <option value="$PROJECT_DIR$/mysite/atlas/PyScripts/ATLAS1.py" />
         <option value="$PROJECT_DIR$/mysite/atlas/PyScripts/Amazon_I1.py" />
         <option value="$PROJECT_DIR$/mysite/atlas/PyScripts/HomeDepot.py" />
-        <option value="$PROJECT_DIR$/mysite/atlas/config/dbConfig.py" />
-        <option value="$PROJECT_DIR$/mysite/atlas/views.py" />
-        <option value="$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js" />
-        <option value="$PROJECT_DIR$/mysite/atlas/services/product_service.py" />
-        <option value="$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js" />
         <option value="$PROJECT_DIR$/mysite/atlas/urls/service_urls.py" />
+        <option value="$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js" />
+        <option value="$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js" />
+        <option value="$PROJECT_DIR$/mysite/atlas/services/product_service.py" />
+        <option value="$PROJECT_DIR$/mysite/atlas/views.py" />
+        <option value="$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html" />
+        <option value="$PROJECT_DIR$/mysite/atlas/config/dbConfig.py" />
       </list>
     </option>
   </component>
@@ -264,123 +168,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
+              <option name="myItemId" value="atlas-master" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mysite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mysite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mysite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mysite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mysite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="urls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django-atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mysite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atlas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="sea&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/static/atlas/script/search.js&#10;url&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/static/atlas/script/url_utils.js&#10;re&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/static/atlas/script/request.js&#10;sear&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/templates/atlas/Search.html&#10;reqKw&#9;null&#9;null&#10;product&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/services/product_service.py&#10;product_se&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/services/product_service.py&#10;urlUtils&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static/atlas/script/url_utils.js&#10;bar&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static/atlas/script/BarChartJS.js&#10;chart&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static/atlas/script/chart_utils.js&#10;static&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static_data.py&#10;view&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/views.py&#10;stat&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static_data.py&#10;barchart&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static/atlas/script/BarChartJS.js&#10;sentiment.html&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/Sentiment.html&#10;search.js&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static/atlas/script/search.js&#10;req&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static/atlas/script/request.js&#10;search&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/Search.html&#10;header&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/header.html&#10;head&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/header.html&#10;request&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/Requests.html" />
+    <property name="SearchEverywhereHistoryKey" value="dbcon&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/atlas/mysite/atlas/config/dbConfig.py&#10;produ&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/atlas/mysite/atlas/services/product_service.py&#10;sea&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/static/atlas/script/search.js&#10;url&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/static/atlas/script/url_utils.js&#10;re&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/static/atlas/script/request.js&#10;sear&#9;FILE&#9;file://C:/Users/neo/Documents/django-atlas/mysite/atlas/templates/atlas/Search.html&#10;reqKw&#9;null&#9;null&#10;product&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/services/product_service.py&#10;product_se&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/services/product_service.py&#10;urlUtils&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static/atlas/script/url_utils.js&#10;bar&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static/atlas/script/BarChartJS.js&#10;chart&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static/atlas/script/chart_utils.js&#10;static&#9;FILE&#9;file://C:/Users/akshat.gupta/Documents/django-atlas/mysite/atlas/static_data.py&#10;view&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/views.py&#10;stat&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static_data.py&#10;barchart&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static/atlas/script/BarChartJS.js&#10;sentiment.html&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/Sentiment.html&#10;search.js&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static/atlas/script/search.js&#10;req&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/static/atlas/script/request.js&#10;search&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/Search.html&#10;header&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/header.html&#10;head&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/header.html&#10;request&#9;FILE&#9;file:///Users/mayanklohani/Downloads/browser/django-atlas/mysite/atlas/templates/atlas/Requests.html" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="ReadonlyStatusHandler">
@@ -402,57 +212,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="django-atlas" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="django-atlas" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="django-atlas" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -482,22 +241,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <module name="django-atlas" />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -644,16 +387,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29500756" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29464287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29787233" sideWeight="0.41679275" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29296234" sideWeight="0.63464445" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25448614" sideWeight="0.4203869" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733223" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29296234" sideWeight="0.63464445" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47463176" sideWeight="0.58320725" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25448614" sideWeight="0.5796131" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -662,6 +404,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -716,9 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -953,19 +693,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/atlas/config/dbConfig.py">
+    <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/view_urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="98" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="98" />
-          <folding />
+        <state relative-caret-position="391">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/url_utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="55" />
-          <folding />
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/service_urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -973,69 +732,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/atlas/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/atlas/templates/atlas/Search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/atlas/services/product_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="850">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/atlas/static/atlas/script/request.js">
+    <entry file="file://$PROJECT_DIR$/mysite/atlas/config/dbConfig.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/atlas/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/view_urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/atlas/urls/service_urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding>
-            <element signature="e#640#680#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

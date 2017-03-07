@@ -48,8 +48,7 @@
 
         var type = null;
         var url= null;
-
-        if(refresh) {
+        if(refresh==="true") {
             console.log("PUT CALL");
             type='PUT';
             url = "/service/product/" + encodeURI(request) + '/refresh'
@@ -64,9 +63,9 @@
             headers: {
                 'X-CSRFToken': $.cookie('X-CSRFToken')
             },
-            data:  {'name': request},
+            data:  {'name': request },
             success: function(response) {
-                location.reload(false);
+                //location.reload(false);
             },
             failure: function(response) {
                 alert("Failure")
@@ -74,6 +73,5 @@
         });
         console.log("ajax call request = ", request)
     });
-
 
 })();
