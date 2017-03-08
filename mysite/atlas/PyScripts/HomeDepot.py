@@ -138,7 +138,7 @@ def get_reviews(curr_link):
                                                    'rDate': [review_date[i].text],
                                                    'rText': [review_text[i].get_attribute("innerText")],
                                                    'pURL': [curr_link]}, index=[0])
-                        k += 1  # Increment index of latest fetched review
+
                         all_reviews = all_reviews.append(one_review)
 
                     except:
@@ -328,6 +328,7 @@ def home_depot_all_info(keywords_list):
         logging.info("Scraper finished at... " + datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p"))
 
         # Saving the CSV file with product information and reviews; one CSV for each product/keyword
+        '''
         curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
         temp_keyword = keywords_list[i].replace(" ", "")
         output_file_name = 'HomeDepot_' + temp_keyword + '_' + curr_timestamp + '.csv'
@@ -335,7 +336,7 @@ def home_depot_all_info(keywords_list):
         all_reviews.to_csv(full_path, index=False, encoding='utf-8')
         print "CSV file for this product saved at location: " + full_path
         logging.info("CSV file for this product saved at location: " + full_path)
-
+        '''
         all_kw_all_rev = all_kw_all_rev.append(all_reviews)
 
     return all_kw_all_rev
