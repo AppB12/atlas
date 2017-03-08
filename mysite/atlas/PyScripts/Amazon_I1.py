@@ -265,6 +265,7 @@ def amazon_prod_info(keywords_list):
                 logging.info(traceback.print_exc())
 
             # Saving CSV for each keyword/product
+            '''
             curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
             temp_keyword = keywords_list[i].replace(" ", "")
             output_file_name = 'AmazonProdsInfo_' + temp_keyword + '_' + curr_timestamp + '.csv'
@@ -272,6 +273,7 @@ def amazon_prod_info(keywords_list):
             print "Saving CSV file for this product @ " + full_path
             logging.info("Saving CSV file for this product @ " + full_path)
             prods_info.to_csv(full_path, index=False, encoding='utf-8')
+            '''
         # 'for' for looping through keywords ends here
     # 'try' inside function ends here
 
