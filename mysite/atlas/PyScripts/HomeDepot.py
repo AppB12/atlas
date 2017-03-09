@@ -20,6 +20,8 @@ is_last_page = True  # If current page IS the last page (for REVIEWS)
 all_reviews = []  # Holds all reviews of one product (iteration)
 all_kw_all_rev = []  # Holds all reviews of all products/keywords
 prods_info = []   # Holds all product information for all products
+status_code = 500
+kw_str = ""
 
 ###################################################################
 
@@ -128,6 +130,7 @@ def get_reviews(curr_link):
                 for i in range(0, len(review_date)):  # Loop through reviews
                     try:
                         one_review = pd.DataFrame({'siteCode': ['HD'],
+                                                   'pCategory': [kw_str],
                                                    'pBrand': [prod_brand],
                                                    'pTitle': [prod_title],
                                                    'pModel': [model_info],
@@ -137,6 +140,7 @@ def get_reviews(curr_link):
                                                    'rTitle': [review_title[i].text],
                                                    'rDate': [review_date[i].text],
                                                    'rText': [review_text[i].get_attribute("innerText")],
+                                                   'rURL': [curr_link],
                                                    'pURL': [curr_link]}, index=[0])
 
                         all_reviews = all_reviews.append(one_review)
@@ -174,15 +178,13 @@ def get_reviews(curr_link):
                 break
             # 'while not is_last_page' ends here
 
-            print "Total reviews fetched for this product: ", len(final_reviews_list)
-            logging.info("Total reviews fetched for this product: " + str(len(final_reviews_list)))
-
         # If no reviews available for this product, then create dummy data frame without reviews and append to main data frame
         else:
             print "No reviews available for this product..."
             logging.info("No reviews available for this product...")
             try:
                 one_review = pd.DataFrame({'siteCode': ['HD'],
+                                           'pCategory': [kw_str],
                                            'pBrand': [prod_brand],
                                            'pTitle': [prod_title],
                                            'pModel': [model_info],
@@ -192,28 +194,33 @@ def get_reviews(curr_link):
                                            'rTitle': '#N/A',
                                            'rDate': '#N/A',
                                            'rText': '#N/A',
+                                           'rURL': [curr_link],
                                            'pURL': [curr_link]}, index=[0])
             except:
                 print "Error while appending dummy review!"
                 logging.info("Error while appending dummy review!")
                 all_reviews = all_reviews.append(one_review)
         # 'else' of (if len(review_text)) ends here
-
+        status_code = 200
     except:
         print "Error(!) while scraping reviews @ ", curr_link
         logging.info("Error(!) while scraping reviews @ " + curr_link)
         print traceback.print_exc()
         logging.info(traceback.print_exc())
+        status_code = 500
+        
+    return status_code
 
 ###################################################################
 
 
 # To scrape product information and reviews from HomeDepot
-def home_depot_all_info(keywords_list):
-    global all_reviews, all_kw_all_rev, next_page_link, has_next_page, all_links_list, links_list, browser
+def home_depot_all_info(kw_str1):
+    global all_reviews, all_kw_all_rev, next_page_link, has_next_page, all_links_list, links_list, browser, kw_str
+    kw_str = kw_str1
 
-    print 'Keywords: ', keywords_list
-    logging.info('Keywords: ' + str(keywords_list))
+    print 'Keywords: ', kw_str
+    logging.info('Keywords: ' + kw_str)
 
     # chrome_path = 'C:\Python27\selenium\webdriver\chromedriver.exe'
     chrome_path = dbConfig.dict["chromeDriver"]
@@ -221,6 +228,7 @@ def home_depot_all_info(keywords_list):
 
     # Create main data frame to hold all product information and reviews of current keyword
     all_reviews = pd.DataFrame({'siteCode': ['HD'],
+                                'pCategory': [kw_str],
                                 'pBrand': [' '],
                                 'pTitle': [' '],
                                 'pModel': [' '],
@@ -230,10 +238,12 @@ def home_depot_all_info(keywords_list):
                                 'rTitle': [' '],
                                 'rDate': [' '],
                                 'rText': [' '],
+                                'rURL': [' '],
                                 'pURL': [' ']}, index=[0])
 
     # Creates aggregated data frame to hold all product information and reviews of all keywords
     all_kw_all_rev = pd.DataFrame({'siteCode': ['HD'],
+                                   'pCategory': [kw_str],
                                    'pBrand': [' '],
                                    'pTitle': [' '],
                                    'pModel': [' '],
@@ -243,103 +253,105 @@ def home_depot_all_info(keywords_list):
                                    'rTitle': [' '],
                                    'rDate': [' '],
                                    'rText': [' '],
+                                   'rURL': [' '],
                                    'pURL': [' ']}, index=[0])
 
     print "Scraper started at ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
 
     # Searches for each keyword and extracts links for each product through all product pages
-    for i in range(0, len(keywords_list)):
-        print "Searching for '"+keywords_list[i]+"'..."
-        logging.info("Searching for '"+keywords_list[i]+"'...")
+    #for i in range(0, len(keywords_list)):
+    print "Searching for '" + kw_str + "'..."
+    logging.info("Searching for '" + kw_str + "'...")
 
-        browser.get("http://www.homedepot.com/")
-        time.sleep(5)
+    browser.get("http://www.homedepot.com/")
+    time.sleep(5)
 
-        element = browser.find_element_by_id("headerSearch")   # Search box on the site homepage
-        element.send_keys(keywords_list[i])  # Enter keyword into search box
-        element.send_keys(Keys.RETURN)  # Emulate pressing Enter
+    element = browser.find_element_by_id("headerSearch")   # Search box on the site homepage
+    element.send_keys(kw_str)  # Enter keyword into search box
+    element.send_keys(Keys.RETURN)  # Emulate pressing Enter
 
-        all_links_list = []  # Refresh for each product
+    all_links_list = []  # Refresh for each product
 
-        try:
-            time.sleep(5)  # Wait till results are loaded
-            x = browser.current_url
+    try:
+        time.sleep(5)  # Wait till results are loaded
+        x = browser.current_url
 
-            print "On the first Results page: " + x
-            logging.info("On the first Results page: " + x)
+        print "On the first Results page: " + x
+        logging.info("On the first Results page: " + x)
 
-            pagination.append(x)
+        pagination.append(x)
 
-            # Get links to products on this Result page, and link to next Result page
-            link_scraper()  # Updates 'links_list' and 'next_page_link'
+        # Get links to products on this Result page, and link to next Result page
+        link_scraper()  # Updates 'links_list' and 'next_page_link'
 
-            for i1 in range(len(links_list)):
-                curr_link = links_list[i1]
+        for i1 in range(len(links_list)):
+            curr_link = links_list[i1]
 
-                print "Getting product information and reviews for this product: " + curr_link
-                logging.info("Getting product information and reviews for this product: " + curr_link)
+            print "Getting product information and reviews for this product: " + curr_link
+            logging.info("Getting product information and reviews for this product: " + curr_link)
 
-                get_reviews(curr_link)
+            get_reviews(curr_link)
 
-            # FOLLOWING CODE IS WORKING FOR LOOPING THROUGH ALL RESULT PAGES. COMMENTED OUT TEMPORARILY.
-            #while has_next_page:  # While current Results page is not the last page
-            #    print "Going to next Results page: " + next_page_link
-            #    logging.info("Going to next Results page: " + next_page_link)
-            #
-            #    browser.get(next_page_link)
-            #    time.sleep(4)
-            #    pagination.append(next_page_link)
-            #
-            #    # Reset following variables for each Results page
-            #    next_page_link = ''
-            #    has_next_page = False
-            #    all_links_list += links_list  # Emptying 'links_list' into 'all_links_list'
-            #    links_list = []
-            #
-            #    link_scraper()  # Updates 'links_list' and 'next_page_link'
-            #
-            #    for i1 in range(len(links_list)):
-            #        curr_link = links_list[i1]
-            #
-            #        print "Getting product information and reviews for this product: " + curr_link
-            #        logging.info("Getting product information and reviews for this product: " + curr_link)
-            #
-            #        get_reviews(curr_link)
-            ## 'while has_next_page' ends here
-        # 'try' inside 'for' for looping through keywords ends here
+        # FOLLOWING CODE IS WORKING FOR LOOPING THROUGH ALL RESULT PAGES. COMMENTED OUT TEMPORARILY.
+        #while has_next_page:  # While current Results page is not the last page
+        #    print "Going to next Results page: " + next_page_link
+        #    logging.info("Going to next Results page: " + next_page_link)
+        #
+        #    browser.get(next_page_link)
+        #    time.sleep(4)
+        #    pagination.append(next_page_link)
+        #
+        #    # Reset following variables for each Results page
+        #    next_page_link = ''
+        #    has_next_page = False
+        #    all_links_list += links_list  # Emptying 'links_list' into 'all_links_list'
+        #    links_list = []
+        #
+        #    link_scraper()  # Updates 'links_list' and 'next_page_link'
+        #
+        #    for i1 in range(len(links_list)):
+        #        curr_link = links_list[i1]
+        #
+        #        print "Getting product information and reviews for this product: " + curr_link
+        #        logging.info("Getting product information and reviews for this product: " + curr_link)
+        #
+        #        get_reviews(curr_link)
+        ## 'while has_next_page' ends here
+    # 'try' inside 'for' for looping through keywords ends here
+        status_code = 200
+    except TypeError:
+        pass
+    except:
+        print "Inside 'except' of looping through keywords..."
+        logging.info("Inside 'except' of looping through keywords...")
+        status_code = 500
 
-        except TypeError:
-            pass
-        except:
-            print "Inside 'except' of looping through keywords..."
-            logging.info("Inside 'except' of looping through keywords...")
+    # Done scraping for current keyword
+    print "Done scraping for '" + kw_str + "'..."
+    logging.info("Done scraping for '" + str(kw_str) + "'...")
 
-        # Done scraping for current keyword
-        print "Done scraping for '" + keywords_list[i] + "'..."
-        logging.info("Done scraping for '" + str(keywords_list[i]) + "'...")
+    print "Total Results pages traversed: ", str(len(pagination))
+    logging.info("Total Results pages traversed: " + str(len(pagination)))
 
-        print "Total Results pages traversed: ", str(len(pagination))
-        logging.info("Total Results pages traversed: " + str(len(pagination)))
+    #print "Total products fetched: ", len(all_links_list)
+    #logging.info("Total products fetched: " + str(len(all_links_list)))
 
-        #print "Total products fetched: ", len(all_links_list)
-        #logging.info("Total products fetched: " + str(len(all_links_list)))
+    print "Scraper finished at... ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
+    logging.info("Scraper finished at... " + datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p"))
 
-        print "Scraper finished at... ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
-        logging.info("Scraper finished at... " + datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p"))
+    # Saving the CSV file with product information and reviews; one CSV for each product/keyword
+    '''
+    curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
+    temp_keyword = keywords_list[i].replace(" ", "")
+    output_file_name = 'HomeDepot_' + temp_keyword + '_' + curr_timestamp + '.csv'
+    full_path = dbConfig.dict["homedepotOutput"] + output_file_name
+    all_reviews.to_csv(full_path, index=False, encoding='utf-8')
+    print "CSV file for this product saved at location: " + full_path
+    logging.info("CSV file for this product saved at location: " + full_path)
+    '''
+    all_kw_all_rev = all_kw_all_rev.append(all_reviews)
 
-        # Saving the CSV file with product information and reviews; one CSV for each product/keyword
-        '''
-        curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
-        temp_keyword = keywords_list[i].replace(" ", "")
-        output_file_name = 'HomeDepot_' + temp_keyword + '_' + curr_timestamp + '.csv'
-        full_path = dbConfig.dict["homedepotOutput"] + output_file_name
-        all_reviews.to_csv(full_path, index=False, encoding='utf-8')
-        print "CSV file for this product saved at location: " + full_path
-        logging.info("CSV file for this product saved at location: " + full_path)
-        '''
-        all_kw_all_rev = all_kw_all_rev.append(all_reviews)
-
-    return all_kw_all_rev
+    return [all_kw_all_rev, status_code]
 # #################################################################
 
 
@@ -396,19 +408,23 @@ def get_prod_info(curr_link):
                                   'rRating': [rating_value],
                                   'pURL': [curr_link]}, index=[0])
         prods_info = prods_info.append(prod_info)
+        status_code = 200
     except:
         print "Error while appending product information!"
         logging.info("Error while appending product information!")
+        status_code = 500
+    return status_code
 
 ###############################################################################################
 
 
 # To scrape product information from HomeDepot
-def home_depot_prod_info(keywords_list):
-    global prods_info, next_page_link, has_next_page, all_links_list, links_list, browser
+def home_depot_prod_info(kw_str1):
+    global prods_info, next_page_link, has_next_page, all_links_list, links_list, browser, kw_str
+    kw_str = kw_str1
 
-    print 'Keywords: ', keywords_list
-    logging.info('Keywords: ' + str(keywords_list))
+    print 'Keywords: ', kw_str
+    logging.info('Keywords: ' + kw_str)
 
     # chrome_path = 'C:\Python27\selenium\webdriver\chromedriver.exe'
     chrome_path = dbConfig.dict["chromeDriver"]
@@ -416,6 +432,7 @@ def home_depot_prod_info(keywords_list):
 
     # Create main data frame to hold all products' information
     prods_info = pd.DataFrame({'pBrand': [' '],
+                               'pCategory': [kw_str],
                                'pTitle': [' '],
                                'pModel': [' '],
                                'price': [' '],
@@ -425,90 +442,93 @@ def home_depot_prod_info(keywords_list):
     print "Scraper started at ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
 
     # Searches for each keyword and extracts links for each product through all product pages
-    for i in range(0, len(keywords_list)):
-        print "Searching for '" + keywords_list[i] + "'..."
-        logging.info("Searching for '" + keywords_list[i] + "'...")
+    #for i in range(0, len(keywords_list)):
+    print "Searching for '" + kw_str + "'..."
+    logging.info("Searching for '" + kw_str + "'...")
 
-        browser.get("http://www.homedepot.com/")
+    browser.get("http://www.homedepot.com/")
+    time.sleep(5)
+
+    element = browser.find_element_by_id("headerSearch")  # Search box on the site homepage
+    element.send_keys(kw_str)  # Enter keyword into search box
+    element.send_keys(Keys.RETURN)  # Emulate pressing Enter
+
+    all_links_list = []  # Refresh for each product
+
+    try:
         time.sleep(5)
+        x = browser.current_url
 
-        element = browser.find_element_by_id("headerSearch")  # Search box on the site homepage
-        element.send_keys(keywords_list[i])  # Enter keyword into search box
-        element.send_keys(Keys.RETURN)  # Emulate pressing Enter
+        print "In the first Results page: ", x
+        logging.info("In the first Results page: " + x)
 
-        all_links_list = []  # Refresh for each product
-
-        try:
-            time.sleep(5)
-            x = browser.current_url
-
-            print "In the first Results page: ", x
-            logging.info("In the first Results page: " + x)
-
-            pagination.append(x)
+        pagination.append(x)
 
 
-            # Get links to products on this Result page, and link to next Result page
-            link_scraper()  # Updates 'links_list' and 'next_page_link'
+        # Get links to products on this Result page, and link to next Result page
+        link_scraper()  # Updates 'links_list' and 'next_page_link'
 
-            for i1 in range(len(links_list)):
-                curr_link = links_list[i1]
-                print "Getting info for this product: " + curr_link
-                logging.info("Getting info for this product: " + curr_link)
-                get_prod_info(curr_link)
-            # # FOLLOWING CODE WORKS FOR LOOPING THROUGH RESULT PAGES. COMMENTED OUT TEMPORARILY.
-            #while has_next_page:
-            #    print "Going to next Results page: " + next_page_link
-            #    logging.info("Going to next Results page: " + next_page_link)
-            #
-            #    browser.get(next_page_link)
-            #    time.sleep(4)
-            #    pagination.append(next_page_link)
-            #
-            #    # Reset following variables for each Results page
-            #    next_page_link = ''
-            #    has_next_page = False
-            #    all_links_list = all_links_list + links_list  # Emptying 'links_list' into 'all_links_list'
-            #    links_list = []
-            #
-            #    link_scraper()  # Updates 'links_list' and 'next_page_link'
-            #
-            #    for i1 in range(len(links_list)):
-            #        curr_link = links_list[i1]
-            #
-            #        print "Getting info for this product: " + curr_link
-            #        logging.info("Getting info for this product: " + curr_link)
-            #
-            #        get_prod_info(curr_link)
-            ## 'while has_next_page' ends here
-        # 'try' inside 'for' for looping through keywords ends here
+        for i1 in range(len(links_list)):
+            curr_link = links_list[i1]
+            print "Getting info for this product: " + curr_link
+            logging.info("Getting info for this product: " + curr_link)
+            get_prod_info(curr_link)
+        # # FOLLOWING CODE WORKS FOR LOOPING THROUGH RESULT PAGES. COMMENTED OUT TEMPORARILY.
+        #while has_next_page:
+        #    print "Going to next Results page: " + next_page_link
+        #    logging.info("Going to next Results page: " + next_page_link)
+        #
+        #    browser.get(next_page_link)
+        #    time.sleep(4)
+        #    pagination.append(next_page_link)
+        #
+        #    # Reset following variables for each Results page
+        #    next_page_link = ''
+        #    has_next_page = False
+        #    all_links_list = all_links_list + links_list  # Emptying 'links_list' into 'all_links_list'
+        #    links_list = []
+        #
+        #    link_scraper()  # Updates 'links_list' and 'next_page_link'
+        #
+        #    for i1 in range(len(links_list)):
+        #        curr_link = links_list[i1]
+        #
+        #        print "Getting info for this product: " + curr_link
+        #        logging.info("Getting info for this product: " + curr_link)
+        #
+        #        get_prod_info(curr_link)
+        ## 'while has_next_page' ends here
+    # 'try' inside 'for' for looping through keywords ends here
+        status_code = 200
+    except TypeError:
+        pass
+    except:
+        print "Inside 'except' of looping through keywords..."
+        logging.info("Inside 'except' of looping through keywords...")
+        status_code = 500
 
-        except TypeError:
-            pass
-        except:
-            print "Inside 'except' of looping through keywords..."
-            logging.info("Inside 'except' of looping through keywords...")
+    # Done scraping for current keyword
+    print "Done scraping for '" + kw_str + "'..."
+    logging.info("Done scraping for '" + str(kw_str) + "'...")
 
-        # Done scraping for current keyword
-        print "Done scraping for '" + keywords_list[i] + "'..."
-        logging.info("Done scraping for '" + str(keywords_list[i]) + "'...")
+    print "Total Results pages traversed: ", str(len(pagination))
+    logging.info("Total Results pages traversed: " + str(len(pagination)))
 
-        print "Total Results pages traversed: ", str(len(pagination))
-        logging.info("Total Results pages traversed: " + str(len(pagination)))
+    #print "Total products fetched: ", len(all_links_list)
+    #logging.info("Total products fetched: " + str(len(all_links_list)))
 
-        #print "Total products fetched: ", len(all_links_list)
-        #logging.info("Total products fetched: " + str(len(all_links_list)))
+    print "Scraper finished at... ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
+    logging.info("Scraper finished at... " + datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p"))
 
-        print "Scraper finished at... ", datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p")
-        logging.info("Scraper finished at... " + datetime.now().strftime("%A, %d %B %Y %I:%M:%S %p"))
-        
-        '''
-        # Saving the CSV file with product information and reviews; one CSV for each product/keyword
-        curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
-        temp_keyword = keywords_list[i].replace(" ", "")
-        output_file_name = 'HomeDepotProdsInfo_' + temp_keyword + '_' + curr_timestamp + '.csv'
-        full_path = dbConfig.dict["homedepotOutput"] + output_file_name
-        prods_info.to_csv(full_path, index=False, encoding='utf-8')
-        print "CSV file for this product saved at location: " + full_path
-        logging.info("CSV file for this product saved at location: " + full_path)
-        '''
+    '''
+    # Saving the CSV file with product information and reviews; one CSV for each product/keyword
+    curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
+    temp_keyword = keywords_list[i].replace(" ", "")
+    output_file_name = 'HomeDepotProdsInfo_' + temp_keyword + '_' + curr_timestamp + '.csv'
+    full_path = dbConfig.dict["homedepotOutput"] + output_file_name
+    prods_info.to_csv(full_path, index=False, encoding='utf-8')
+    print "CSV file for this product saved at location: " + full_path
+    logging.info("CSV file for this product saved at location: " + full_path)
+    '''
+    
+    return status_code
