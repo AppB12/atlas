@@ -13,7 +13,6 @@ print("Imports complete")
 
 # Global variables
 integ_data_frame = []
-output_file_path = "C:\Users\Aparna.harihara\PycharmProjects\AuScer\Outputs\\ATLAS_Universal.csv"
 status_code = 500
 
 # ############################################################################
@@ -89,19 +88,19 @@ def main(kw_str):
 
     final_data_frame1 = clean_integ_dataframe(integ_data_frame)
 
-    '''
+
     # Saving the CSV file with product information and reviews; one CSV for each product/keyword
     curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
-    output_file_name = 'ATLAS_' + curr_timestamp + '.csv'
-    full_path = dbConfig.dict["outputUrl"] + output_file_name
+    output_file_name = kw_str + '_ATLAS_' + curr_timestamp + '.csv'
+    full_path = dbConfig.dict["outputPath"] + output_file_name
     final_data_frame1.to_csv(full_path, index=False, encoding='utf-8')
     print "CSV file for this product saved at location: " + full_path
     logging.info("CSV file for this product saved at location: " + full_path)
-    '''
-    
-    with open(output_file_path, 'a') as f:
+
+    print(final_data_frame1)
+    with open(dbConfig.dict["outputUrl"], 'a') as f:
         final_data_frame1.to_csv(f, header=False, index=False, encoding='utf-8')
-    
+    f.close()
     return status_code
 
 # ####################################################################################

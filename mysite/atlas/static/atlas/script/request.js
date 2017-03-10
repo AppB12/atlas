@@ -65,7 +65,7 @@
             },
             data:  {'name': request },
             success: function(response) {
-                //location.reload(false);
+                location.reload(false);
             },
             failure: function(response) {
                 alert("Failure")
