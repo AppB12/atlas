@@ -30,7 +30,8 @@ def clean_integ_dataframe(final_df):
 # Main function:
 def main(kw_str):
     global integ_data_frame
-    
+    website = ["HD", "AM"]
+    status = []                 #For storing status codes
     # For logging
     curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
     log_file_name = 'ATLASLog_' + curr_timestamp + '.log'
@@ -70,6 +71,7 @@ def main(kw_str):
 
     integ_data_frame = integ_data_frame.append(returned_list_HD[0])
     status_code = returned_list_HD[1]
+    status.append(returned_list_HD[1])
 
     print "Status Code for HomeDepot: " + str(returned_list_HD[1])
     
@@ -78,16 +80,25 @@ def main(kw_str):
     returned_list_AM = Amazon_I1.amazon_i_all_info(kw_str)
 
     integ_data_frame = integ_data_frame.append(returned_list_AM[0])
-    
+    status.append(returned_list_AM[1])
+    status_dict = dict(zip(website, status))
+    '''
     if status_code == returned_list_AM[1]:
         status_code = returned_list_AM[1]
     else:
         status_code = 500
+    '''
+    print status_dict
+    for value in status_dict.itervalues():
+        if value == 500:
+            status_code = value
+            break
+        else:
+            status_code = value
 
     print "Status Code for Amazon: " + str(returned_list_AM[1])
 
     final_data_frame1 = clean_integ_dataframe(integ_data_frame)
-
 
     # Saving the CSV file with product information and reviews; one CSV for each product/keyword
     curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
@@ -97,10 +108,11 @@ def main(kw_str):
     print "CSV file for this product saved at location: " + full_path
     logging.info("CSV file for this product saved at location: " + full_path)
 
-    print(final_data_frame1)
+    #print(final_data_frame1)
     with open(dbConfig.dict["outputUrl"], 'a') as f:
         final_data_frame1.to_csv(f, header=False, index=False, encoding='utf-8')
     f.close()
+    print ("Returning Status code from main file", status_code)
     return status_code
 
 # ####################################################################################
