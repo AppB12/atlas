@@ -30,7 +30,7 @@ products = {
         }
     },
     'Radio': {
-        'metaData':{
+        'metaData': {
             'id': 'prod2',
             'lastUpdated': datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M:%S %p"),
             'name': 'Radio'
@@ -57,12 +57,12 @@ products = {
         }
     },
     'Hot Plate': {
-        'metaData':{
+        'metaData': {
             'id': 'prod3',
             'lastUpdated': datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M:%S %p"),
             'name': 'Hot Plate'
         },
-        'analyticData':{
+        'analyticData': {
 
         }
     },
