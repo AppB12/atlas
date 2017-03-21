@@ -1,6 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
-
+import pymongo
 from time import sleep
 import ATLAS1
 from atlas.config import dbConfig
@@ -14,7 +14,6 @@ def caller(request):
 
     status = ATLAS1.main(request)
     print("Atlas main finish")
-
     df = pd.read_csv(dbConfig.dict["requestUrl"])
     '''
     if(status == 200):
@@ -32,6 +31,13 @@ def caller(request):
     sent_list = []
     sent_list = SentimentAPI.senti_main(dbConfig.dict['outputUrl'], request)
     print sent_list
+
+    db = pymongo.MongoClient().atlas
+    ref_string = request + ".metaData.name"
+    target_string = request + ".analyticData.sentimentData"
+    db.sentData.update({ref_string: request},
+                       {"$set": {target_string: sent_list[0]}})
+
     print("Exiting return")
     return request
 

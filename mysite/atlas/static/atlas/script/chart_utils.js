@@ -14,5 +14,5 @@
                 series: options.series
             });
     }
-    
+
 })(window.chartUtils || (window.chartUtils = {}));

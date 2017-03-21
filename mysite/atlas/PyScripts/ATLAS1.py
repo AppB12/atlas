@@ -1,6 +1,6 @@
 import HomeDepot
 #import Amazon_I1
-#import Amazon
+import Amazon
 import logging
 from datetime import datetime
 import time
@@ -31,7 +31,7 @@ def clean_integ_dataframe(final_df):
 # Main function:
 def main(kw_str):
     global integ_data_frame
-    website = ["HD"]
+    website = ["HD", "AM"]
     status = []                 #For storing status codes
     # For logging
     curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
@@ -79,10 +79,10 @@ def main(kw_str):
     print "Now scraping product information and reviews from AMAZON (using Import.io)..."
     logging.info("Now scraping product information and reviews from AMAZON (using Import.io)...")
     #returned_list_AM = Amazon_I1.amazon_i_all_info(kw_str)
-    #returned_list_AM = Amazon.amazon_all_info(kw_str)
+    returned_list_AM = Amazon.amazon_all_info(kw_str)
 
-    #integ_data_frame = integ_data_frame.append(returned_list_AM[0])
-    #status.append(returned_list_AM[1])
+    integ_data_frame = integ_data_frame.append(returned_list_AM[0])
+    status.append(returned_list_AM[1])
     status_dict = dict(zip(website, status))
     '''
     if status_code == returned_list_AM[1]:
@@ -98,7 +98,7 @@ def main(kw_str):
         else:
             status_code = value
 
-    #print "Status Code for Amazon: " + str(returned_list_AM[1])
+    print "Status Code for Amazon: " + str(returned_list_AM[1])
 
     final_data_frame1 = clean_integ_dataframe(integ_data_frame)
 
@@ -117,5 +117,5 @@ def main(kw_str):
     print ("Returning Status code from main file", status_code)
     return status_code
 
-# ####################################################################################
+#####################################################################################
 
