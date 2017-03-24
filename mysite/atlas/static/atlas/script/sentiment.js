@@ -1,8 +1,8 @@
 (function(){
     var request = window.urlUtils.getQueryParameter(window.location.href, 'request');
-    $.get('/service/product?query=' + request).then(function (successResponse) {
+    $.get('http://127.0.0.1:8000/service/product?query=' + request).then(function (successResponse) {
         var sentimentData = JSON.parse(successResponse).analyticData.sentimentData;
-        var normalizedSentimentData  = getNormalizeSentimentDataForLineChart(sentimentData);
+        var normalizedSentimentData = getNormalizeSentimentDataForLineChart(sentimentData);
 
         chartUtils.drawBarChart({
             'chartContainerId': 'bar-chart',
@@ -32,7 +32,7 @@
             var dataClone = {
                 'name': sData.name,
                 'data': [
-                    sData.data.positive, sData.data.negative, sData.data.neutral
+                    sData.data.Positive, sData.data.Negative, sData.data.Negative
                 ]
             };
             sentimentDataClone.push(dataClone);

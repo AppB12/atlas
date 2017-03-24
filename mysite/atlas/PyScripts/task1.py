@@ -1,6 +1,8 @@
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
 import pymongo
+import datetime
+import binascii
 from time import sleep
 import ATLAS1
 from atlas.config import dbConfig
@@ -12,9 +14,31 @@ import TrigDriv
 def caller(request):
     print("Entering", request)
 
+    db = pymongo.MongoClient().atlas
+    s = request.encode('utf-8')
     status = ATLAS1.main(request)
+    prod_dict = {
+        '_id': binascii.hexlify(s),
+        'Product': request,
+        'metadata': {
+            '_id': binascii.hexlify(s),
+            'lastUpdated': datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M:%S %p"),
+            'name': request
+        },
+        'analyticData': {
+            'sentimentData': [
+
+            ],
+            'trigdrivData': [
+
+            ]
+        }
+    }
+    result = db.data.insert_one(prod_dict)
     print("Atlas main finish")
+
     df = pd.read_csv(dbConfig.dict["requestUrl"])
+
     '''
     if(status == 200):
         #Update request csv status to completed
@@ -32,12 +56,10 @@ def caller(request):
     sent_list = SentimentAPI.senti_main(dbConfig.dict['outputUrl'], request)
     print sent_list
 
-    db = pymongo.MongoClient().atlas
-    ref_string = request + ".metaData.name"
-    target_string = request + ".analyticData.sentimentData"
-    db.sentData.update({ref_string: request},
-                       {"$set": {target_string: sent_list[0]}})
+    target_string = "analyticData.sentimentData"
 
+    db.data.update({"_id": binascii.hexlify(s)}, {"$set": {target_string: sent_list[0]}})
+    print result.inserted_id
     print("Exiting return")
     return request
 

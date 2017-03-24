@@ -6,6 +6,7 @@ import json
 from classes.error import Error
 from atlas import static_data
 from atlas.services import product_service
+import pymongo
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 
@@ -27,6 +28,22 @@ def sentiment(request):
 
 # @require_http_methods(["GET"])
 def searchQuery(request):
+    db = pymongo.MongoClient().atlas
+
+    query = request.GET['query']
+    # print(static_data.products[query])
+    result = [doc for doc in db.data.find({"Product": query})]
+
+    if result:
+        return HttpResponse(json.dumps(result[0]), status=200)
+    else:
+        # error = Error("product you are looking for does not exist", 404)
+        # print(error)
+        print("Error")
+        return HttpResponse("Product you are looking for does not exist", status=404)
+
+'''
+def searchQuery(request):
     query = request.GET['query']
     # print(static_data.products[query])
 
@@ -37,6 +54,7 @@ def searchQuery(request):
         # print(error)
         print("error")
         return HttpResponse("Product you are looking for does not exist", status=404)
+'''
 
 def addProduct(request):
 #    return HttpResponse("added", status=200)
