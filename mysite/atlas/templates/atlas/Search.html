@@ -32,7 +32,11 @@
                                  <h4>Search keyword: &nbsp; <input type="text" name="searchterm" id="search-query"/></h4>
                             </div>
                             <div class="col-lg-2"><a class="btn btn-default btn-block btn-sm" id="search-query-submit">Search</a></div>
-                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+                                <form action="/service/upload/" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                <input type="file" name="upload" />
+                                <input type="submit" /></form>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2"></div>

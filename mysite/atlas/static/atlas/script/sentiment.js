@@ -1,6 +1,6 @@
 (function(){
     var request = window.urlUtils.getQueryParameter(window.location.href, 'request');
-    $.get('http://127.0.0.1:8000/service/product?query=' + request).then(function (successResponse) {
+    $.get('/service/product?query=' + request).then(function (successResponse) {
         var sentimentData = JSON.parse(successResponse).analyticData.sentimentData;
         var normalizedSentimentData = getNormalizeSentimentDataForLineChart(sentimentData);
 

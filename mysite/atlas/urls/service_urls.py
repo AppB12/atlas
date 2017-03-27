@@ -16,6 +16,7 @@ Including another URLconf
 
 from django.conf.urls import url,include
 from atlas import views
+from atlas.services import upload
 
 
 urlpatterns = [
@@ -24,6 +25,7 @@ urlpatterns = [
     url(r'^product/(\w+\s*\w*)/refresh$', views.refreshProduct),
     url(r'^request/$', views.getRequests),
     url(r'^product_list/$', views.getAutoCompleteList),
+    url(r'^upload/$', upload.upload),
 
 ]
 
