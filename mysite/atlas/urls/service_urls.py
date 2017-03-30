@@ -14,9 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
-from django.conf.urls import url,include
+from django.conf.urls import url
 from atlas import views
-from atlas.services import upload
 
 
 urlpatterns = [
@@ -25,7 +24,7 @@ urlpatterns = [
     url(r'^product/(\w+\s*\w*)/refresh$', views.refreshProduct),
     url(r'^request/$', views.getRequests),
     url(r'^product_list/$', views.getAutoCompleteList),
-    url(r'^upload/$', upload.upload),
+    url(r'^upload/$', views.uploadFile),
 
 ]
 

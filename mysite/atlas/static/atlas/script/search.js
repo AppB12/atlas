@@ -31,6 +31,8 @@
 
     var activateDashboard = function(dashboards, request) {
         $('#main-panel').removeClass('hidden');
+        console.log(dashboards["sentimentData"].length)
+        console.log(dashboards["sentimentData"])
         if (dashboards["sentimentData"] && dashboards["sentimentData"].length > 0) {
             console.log("sentiment data available");
             $('#sentiment').removeClass('disabled');

@@ -8,4 +8,6 @@ dict = dict(logUrl=r'C:\Users\\akshat.gupta\Documents\atlas-master\mysite\\atlas
             keywordsDict=r'C:\\Users\\akshat.gupta\\Documents\\atlas-master\\mysite\\atlas\\database\\keywordsTD.csv',
             tri_dri_Output=r'C:\\Users\\akshat.gupta\\Documents\\atlas-master\\mysite\\atlas\\database\\Outputs\\Triggers-Drivers\\',
             sentDict=r'C:\Users\akshat.gupta\Documents\atlas-master\mysite\atlas\PyScripts\AFINN-111.txt',
+            uploadsUrl=r'C:\Users\akshat.gupta\Documents\atlas-master\mysite\atlas\database\uploads\\',
+
             )

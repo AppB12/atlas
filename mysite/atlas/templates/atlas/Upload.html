@@ -1,0 +1,76 @@
+{% extends 'atlas/header.html' %}
+
+{% block title %}ATLAS -  Automated Lexical Analysis Software| Upload{% endblock %}
+
+{% load staticfiles %}
+{% csrf_token %}
+
+
+{% block content %}
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">Upload</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="/home/">Home</a>&nbsp;&nbsp;</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6">
+                                <label class="control-label">Select File</label>{% csrf_token %}
+                                <input id="input-44" name="input44[]" type="file" multiple class="file-loading">{% csrf_token %}
+                                <div id="errorBlock" class="help-block"></div>
+                                <!--<form id="submitUpload" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                <input type="file" name="upload" />
+                                <input type="submit" /></form>-->
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <br/><br/>
+                        <br/><br/>
+
+                        <div class="row hidden" id="create-request">
+                            <div class="col-lg-12">
+                                <h5>We cannot find any data for the query you made, to raise a request click <span style="text-decoration: underline;"><a href="/requests/" id="make-request" target="_self">here</a></span>.</h5>
+                            </div>
+                        </div>
+                    </div><!--END PANEL BODY -->
+                </div><!--END PANEL PANEL DEFAULT -->
+            </div><!--END COL-LG-12 -->
+        </div><!--END ROW -->
+
+    </div>
+    <!--END CONTENT-->
+
+    <!--BEGIN FOOTER-->
+    <div id="footer">
+        <div class="copyright">
+        </div>
+    </div>
+    <!--END FOOTER-->
+</div>
+
+{% endblock %}
+
+{% block imports %}
+    <script src="{% static 'atlas/script/url_utils.js' %}"></script>
+    <script src="{% static 'atlas/script/upload.js' %}"></script>
+{% endblock %}

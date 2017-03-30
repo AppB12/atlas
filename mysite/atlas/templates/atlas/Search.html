@@ -33,9 +33,6 @@
                             </div>
                             <div class="col-lg-2"><a class="btn btn-default btn-block btn-sm" id="search-query-submit">Search</a></div>
                             <div class="col-lg-2">
-                                <form action="/service/upload/" method="post" enctype="multipart/form-data">{% csrf_token %}
-                                <input type="file" name="upload" />
-                                <input type="submit" /></form>
                             </div>
                         </div>
                         <div class="row">
@@ -132,6 +129,7 @@
 {% block imports %}
     <script src="{% static 'atlas/script/search.js' %}"></script>
     <script src="{% static 'atlas/script/url_utils.js' %}"></script>
+
     <script type="text/javascript">
         //var js_list = "{{dict|safe}}";
         //var json_string = unescape({{json_list|safe|escape}});

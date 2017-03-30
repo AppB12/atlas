@@ -6,7 +6,7 @@
 
         chartUtils.drawBarChart({
             'chartContainerId': 'bar-chart',
-            'title'           : 'Overall Sentiments for Product',
+            'title'           : 'Overall Sentiments',
             'xAxis'           : {
                 categories: ['Positive', 'Negative', 'Neutral']
             },
@@ -32,7 +32,7 @@
             var dataClone = {
                 'name': sData.name,
                 'data': [
-                    sData.data.Positive, sData.data.Negative, sData.data.Negative
+                    sData.data.Positive, sData.data.Negative, sData.data.Neutral
                 ]
             };
             sentimentDataClone.push(dataClone);

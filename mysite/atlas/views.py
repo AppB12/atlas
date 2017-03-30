@@ -8,6 +8,7 @@ from atlas import static_data
 from atlas.services import product_service
 import pymongo
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
@@ -24,6 +25,9 @@ def requests(request):
 
 def sentiment(request):
     return render(request, 'atlas/Sentiment.html')
+
+def upload(request):
+    return render(request, 'atlas/Upload.html')
 
 
 # @require_http_methods(["GET"])
@@ -55,6 +59,15 @@ def searchQuery(request):
         print("error")
         return HttpResponse("Product you are looking for does not exist", status=404)
 '''
+
+@csrf_exempt
+def uploadFile(request):
+    print dir(request)
+    #print(type(request._files['upload'].file))
+    responseObject = product_service.uploadFile(request)
+    #form = cgi.FieldStorage()
+    return HttpResponse(json.dumps(responseObject), status=responseObject["status"])
+
 
 def addProduct(request):
 #    return HttpResponse("added", status=200)

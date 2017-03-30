@@ -10,7 +10,7 @@ def td_main(csv_file_path, kw_str):
 
     try:
         keywords_dict_file = dbConfig.dict['keywordsDict']
-        output_file_loc = dbConfig.dict['tri_dri_Output']
+        #output_file_loc = dbConfig.dict['tri_dri_Output']
         triggers = ['Upgrade', 'Replace', 'First Purchase', 'Gift', 'Marketing Sales']
         drivers = ['Brand', 'Cost', 'Recommendation', 'Innovation', 'Marketing Ads']
         trig_perc = [0, 0, 0, 0, 0]
@@ -53,7 +53,7 @@ def td_main(csv_file_path, kw_str):
                 op = ip_df[ip_df['Index1'] == 1]
                 #op = df[df['Index1'] == 1]
                 op.index = range(len(op))
-                op.to_csv(output_file_loc + kw.ix[each_kw, 'ToD'] + ".csv", index=None)  # change data source
+                #op.to_csv(output_file_loc + kw.ix[each_kw, 'ToD'] + ".csv", index=None)  # change data source
                 print "No. of Documents for theme - ", kw.ix[each_kw, "ToD"], "=", len(op)
                 Theme_vol = [kw.ix[each_kw, 'ToD'], len(op)]
                 temp_list.append(Theme_vol)
@@ -84,7 +84,7 @@ def td_main(csv_file_path, kw_str):
 
             end_time = time()
             temp_list_df = pd.DataFrame(temp_list)
-            temp_list_df.to_csv(output_file_loc + "VolumeNumbers.csv")  # change data source here
+            #temp_list_df.to_csv(output_file_loc + "VolumeNumbers.csv")  # change data source here
             print "Running Time : " + str(end_time - start_time) + " secs"
         status_code = 200
         return [trig_dict_list, driv_dict_list, status_code]

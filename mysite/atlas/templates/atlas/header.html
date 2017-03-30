@@ -16,7 +16,9 @@
         <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Sacramento:400,700,300">
         <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/jquery-ui-1.10.4.custom.min.css' %}">
         <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/font-awesome.min.css' %}">
-        <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/bootstrap.min.css' %}">
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/fileinput.min.css' %}" media="all" />
+
         <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/animate.css' %}">
         <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/all.css' %}">
         <link type="text/css" rel="stylesheet" href="{% static 'atlas/styles/main.css' %}">
@@ -76,17 +78,25 @@
                                 <i class="fa fa-search fa-fw">
                                     <div class="icon-bg bg-orange"></div>
                                 </i>
-                                <span class="menu-title">ATLAS Search</span>
+                                <span class="menu-title">Search</span>
                             </a>
                         </li>
 
                         <div class="clearfix"></div>
                         <li>
                             <a href="/requests/">
-                                <i class="fa fa-home fa-fw">
+                                <i class="fa fa-list-alt fa-fw">
                                     <div class="icon-bg bg-orange"></div>
                                 </i>
-                                <span class="menu-title">ATLAS Requests</span>
+                                <span class="menu-title">Requests</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/upload/">
+                                <i class="fa fa-upload fa-fw">
+                                    <div class="icon-bg bg-orange"></div>
+                                </i>
+                                <span class="menu-title">Upload</span>
                             </a>
                         </li>
                     </ul>
@@ -97,10 +107,17 @@
             </div><!--END WRAPPER-->
     </div><!--END DIV INSIDE BODY -->
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="{% static 'atlas/script/vendor/jquery-1.10.2.min.js' %}"></script>
     <script src="{% static 'atlas/script/vendor/jquery-migrate-1.2.1.min.js' %}"></script>
     <script src="{% static 'atlas/script/vendor/jquery-ui.js' %}"></script>
-    <script src="{% static 'atlas/script/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'atlas/script/vendor/canvas-to-blob.min.js' %}"></script>
+    <script src="{% static 'atlas/script/vendor/sortable.min.js' %}"></script>
+    <script src="{% static 'atlas/script/vendor/purify.min.js' %}"></script>
+    <script src="{% static 'atlas/script/vendor/fileinput.min.js' %}"></script>
+    <script src="{% static 'atlas/script/vendor/theme.js' %}"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{% static 'atlas/script/vendor/bootstrap-hover-dropdown.js' %}"></script>
     <script src="{% static 'atlas/script/vendor/html5shiv.js' %}"></script>
     <script src="{% static 'atlas/script/vendor/respond.min.js' %}"></script>
