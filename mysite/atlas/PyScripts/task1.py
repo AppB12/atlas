@@ -19,6 +19,7 @@ def caller_file(request):
     file_dict = {
         '_id': binascii.hexlify(s),
         'Product': request,
+
         'metadata': {
             '_id': binascii.hexlify(s),
             'lastUpdated': datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M:%S %p"),
@@ -44,6 +45,7 @@ def caller_file(request):
     print("Exiting return")
     return request
 
+
 def caller(request):
     print("Entering", request)
 
@@ -64,7 +66,7 @@ def caller(request):
             ],
             'trigdrivData': [
 
-            ]
+            ],
         }
     }
     result = db.data.insert_one(prod_dict)

@@ -23,7 +23,6 @@ urlpatterns = [
     url(r'^search/$', views.index, name='index'),
     url(r'^requests/$', views.requests, name='requests'),
     url(r'^sentiment/$', views.sentiment, name='sentiment'),
+    url(r'^trigdriv/$', views.trigdriv, name='trigdriv'),
     url(r'^upload/$', views.upload, name='upload'),
-
 ]
-

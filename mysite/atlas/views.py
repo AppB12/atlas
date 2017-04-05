@@ -26,6 +26,9 @@ def requests(request):
 def sentiment(request):
     return render(request, 'atlas/Sentiment.html')
 
+def trigdriv(request):
+    return render(request, 'atlas/Trigger_Driver.html')
+
 def upload(request):
     return render(request, 'atlas/Upload.html')
 
@@ -35,7 +38,6 @@ def searchQuery(request):
     db = pymongo.MongoClient().atlas
 
     query = request.GET['query']
-    # print(static_data.products[query])
     result = [doc for doc in db.data.find({"Product": query})]
 
     if result:
