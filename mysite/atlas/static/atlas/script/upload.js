@@ -1,5 +1,7 @@
 (function(){
     console.log("LOADING UPLOAD JS")
+    $('#upload').addClass('active');
+
     $(document).on('ready', function() {
         $("#input-44").fileinput({
             uploadUrl: '/service/upload/',

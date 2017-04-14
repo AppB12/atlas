@@ -1,29 +1,126 @@
 (function() {
     $("#main-panel").addClass('hidden');
     $('#refresh-data').addClass('hidden');
+    $('#search').addClass('active');
+
 
     var searchQuery = null;
 
+    //Read the requests from the request queue
+    $.get('/service/request/').then(function (successResponse) {
+        //console.log('Stringify successResponse', JSON.stringify(successResponse,null, 2));
+        //console.log('Parsed successResponse', JSON.parse(successResponse));
+        var clients = [
+            { "Request ID": "001", "Product": "TV", "Time": "16:54 Feb 20th 2016" , "Status": "Completed"},
+            { "Request ID": "002", "Product": "iMac", "Time": "20:01 April 10th 2016" ,"Status": "Completed"},
+            { "Request ID": "003", "Product": "iPad", "Time": "15:41 January 31st 2017" ,"Status": "Processing"},
+            { "Request ID": "004", "Product": "iPhone", "Time": "13:09 February 15th " ,"Status": "Pending"},
+            { "Request ID": "005", "Product": "Chrome Book" , "Time": "00:45 February 21st" ,"Status": "Pending"}
+        ];
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "400px",
+
+            inserting: false,
+            editing: false,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            pageLoading: true,
+
+
+            data: JSON.parse(successResponse),
+
+            fields: [
+                { name: "reqId", type: "text", width: 100, title:"Request ID" },
+                { name: "reqKw", type: "text", width: 150, title: "Product" },
+                { name: "reqTime", type: "text", width: 150, title: "Time" },
+                { name: "reqStatus", type: "text", width: 150, title: "Status" },
+
+            ],
+            rowClick: function(args) {
+                // save selected item
+                selectedItem = args.item;
+
+                // save selected row
+                $selectedRow = $(args.event.target).closest("tr");
+
+                // add class to highlight row
+                $selectedRow.addClass("selected-row");
+                console.log(selectedItem)
+                console.log(selectedItem.reqKw)
+                window.location = "../analysis/?request=" + selectedItem.reqKw
+            },
+        });
+    }, function (errorResponse) {
+            console.log("errorResponse", errorResponse)
+    });
+
+
     $('#search-query-submit').on('click', function (e) {
+
+        var refresh = "true";
         query = $('#search-query').val();
         console.log('searchQuery', query);
 
         $('.dashboard').addClass('disabled');
         $('#create-request').addClass('hidden');
+        $('#request-notification').addClass('hidden');
 
-        $('#create-request #make-request').attr('href', '/requests/?request=');
+        //$('#create-request #make-request').attr('href', '/requests/?request=');
 
         $.get('/service/product?query=' + query).then(function (successResponse) {
             console.log('successResponse', successResponse);
             $('#refresh-data').removeClass('hidden');
-            $('#refresh-data').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=true')
-            activateDashboard(JSON.parse(successResponse).analyticData, query)
+            //$('#refresh-data').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=true')
+            $('#refresh-data').on('click', function(e) {
+                console.log("Inside refresh")
+
+            });
+            //activateDashboard(JSON.parse(successResponse).analyticData, query)
         }, function (errorResponse) {
             console.log('errorResponse', errorResponse);
             if (errorResponse.status == "404") {
                 console.log("Changing search value button to submit");
                 $('#create-request').removeClass('hidden');
-                $('#create-request #make-request').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=false')
+                //$('#create-request #make-request').attr('href', '/requests/?request='+ encodeURI(query) + '&refresh=false')
+                refresh = "false"
+
+                $('#create-request #make-request').on('click', function (e) {
+                    console.log("Button clicked")
+                    //var refresh = window.urlUtils.getQueryParameter(window.location.href, 'refresh');
+                    console.log(refresh)
+                    var type = null;
+                    var url= null;
+                    if(refresh==="true") {
+                        console.log("PUT CALL");
+                        type='PUT';
+                        url = "/service/product/" + encodeURI(query) + '/refresh'
+                    } else {
+                        console.log("POST CALL");
+                        type= 'POST';
+                        url = "/service/product/add"
+                    }
+                    $.ajax({
+                        type: type,
+                        url: url,
+                        headers: {
+                            'X-CSRFToken': $.cookie('X-CSRFToken')
+                        },
+                        data:  {'name': query },
+                        success: function(response) {
+                            location.reload(false);
+                            alert("Request Raised succesfully")
+                        },
+                        failure: function(response) {
+                            alert("Failure")
+                        }
+                    });
+                    console.log("Ajax call request = ", query)
+                });
+
+
             }
         });
     });

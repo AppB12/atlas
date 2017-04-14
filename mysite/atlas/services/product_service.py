@@ -60,6 +60,7 @@ def getMetaDataFromProducts():
         ls.append(val["metaData"])
     return ls
 
+
 def uploadFile(request):
     responseObject = {}
     keyObject = ["message", "status", "body"]
@@ -101,5 +102,4 @@ def uploadFile(request):
         responseObject["message"] = "Failure: Error , File NOT Uploaded"
         responseObject["status"] = 404
         responseObject["body"] = "No FILE"
-
     return responseObject

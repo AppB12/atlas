@@ -1,5 +1,11 @@
 (function(){
+
+    $('#parent').removeClass('hidden');
+    $('#parent').addClass('active');
+
     var request = window.urlUtils.getQueryParameter(window.location.href, 'request');
+    $('#analysis a').attr('href', '/analysis/?request=' + request)
+
     $.get('/service/product?query=' + request).then(function (successResponse) {
         var sentimentData = JSON.parse(successResponse).analyticData.sentimentData;
         var normalizedSentimentData = getNormalizeSentimentDataForLineChart(sentimentData);

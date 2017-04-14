@@ -26,6 +26,12 @@ def requests(request):
 def sentiment(request):
     return render(request, 'atlas/Sentiment.html')
 
+def analysis(request):
+    return render(request, 'atlas/Analysis.html')
+
+def topicmodeling(request):
+    return render(request, 'atlas/Topic.html')
+
 def trigdriv(request):
     return render(request, 'atlas/Trigger_Driver.html')
 

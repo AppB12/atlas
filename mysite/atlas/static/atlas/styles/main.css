@@ -818,21 +818,31 @@ hr {
 }
 .navbar-static-side ul li:first-child a {
   padding: 0;
+
 }
 .navbar-static-side ul li
 {
    background: #3C3C3C; /* Old browsers */
-     outline: none;
-      color:#d9d9d9;
+   outline: none;
+   transition: 0.2s all ease-in-out;
+   color:#d9d9d9;
     
 }
 
 .navbar-static-side ul li.active a {
-background: #3e77ab; /* Old browsers */
+background: #3C3C3C; /* Old browsers */
   transition: 0.2s all ease-in-out;
   outline: none;
   color:#FFF;
 }
+
+.navbar-static-side ul li.active a ul li:first-child a{
+background: #3C3C3C; /* Old browsers */
+  transition: 0.2s all ease-in-out;
+  outline: none;
+  color:#FFF;
+}
+
 .navbar-static-side ul li a {
   color: #d9d9d9;
   padding: 15px;

@@ -9,5 +9,5 @@ dict = dict(logUrl=r'C:\Users\\akshat.gupta\Documents\atlas-master\mysite\\atlas
             tri_dri_Output=r'C:\\Users\\akshat.gupta\\Documents\\atlas-master\\mysite\\atlas\\database\\Outputs\\Triggers-Drivers\\',
             sentDict=r'C:\Users\akshat.gupta\Documents\atlas-master\mysite\atlas\PyScripts\AFINN-111.txt',
             uploadsUrl=r'C:\Users\akshat.gupta\Documents\atlas-master\mysite\atlas\database\uploads\\',
-
+            topicUrl=r'C:\Users\akshat.gupta\Documents\atlas-master\mysite\atlas\database\topicmodel\viz\\',
             )

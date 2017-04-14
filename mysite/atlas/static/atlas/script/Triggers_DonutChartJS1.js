@@ -23,6 +23,7 @@ var data1 = [{
 
 // Create the chart
 Highcharts.chart('donut-chart1', {
+
 	credits: {
         enabled: false
     },
@@ -30,7 +31,8 @@ Highcharts.chart('donut-chart1', {
         type: 'pie'
     },
     title: {
-        text: 'Triggers of Purchase'
+        text: 'Triggers of Purchase',
+        style: { fontSize: '12px' },
     },
     plotOptions: {
 		series: {

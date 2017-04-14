@@ -73,7 +73,7 @@
                 <div class="sidebar-collapse menu-scroll">
                     <ul id="side-menu" class="nav">
                         <div class="clearfix"></div>
-                        <li>
+                        <li id = "search" class="treeview">
                             <a href="/">
                                 <i class="fa fa-search fa-fw">
                                     <div class="icon-bg bg-orange"></div>
@@ -83,15 +83,31 @@
                         </li>
 
                         <div class="clearfix"></div>
-                        <li>
-                            <a href="/requests/">
+<!--                        <li id = "analysis" class="treeview hidden">
+                            <a href="/analysis/">
                                 <i class="fa fa-list-alt fa-fw">
                                     <div class="icon-bg bg-orange"></div>
                                 </i>
-                                <span class="menu-title">Requests</span>
+                                <span class="menu-title">Analysis</span>
                             </a>
+                        </li>-->
+
+                        <li id="parent" class="hidden">
+						<a href="#">
+							<i class="fa fa-sitemap fa-fw">
+								<!--<div class="icon-bg bg-dark"></div>-->
+							</i>
+							<span class="menu-title">Analytics</span>
+							<i class="fa fa-angle-left pull-right"></i>
+						</a>
+						<ul>
+							<li style="padding:5px;"><a href="/analysis/" style="padding: 5px;"> Analysis</a></li>
+							<li style="padding:5px;"><a href="/topicmodeling/" style="padding: 5px;"> Topic Model</a></li>
+						</ul>
                         </li>
-                        <li>
+
+
+                        <li id = "upload" class="treeview">
                             <a href="/upload/">
                                 <i class="fa fa-upload fa-fw">
                                     <div class="icon-bg bg-orange"></div>
