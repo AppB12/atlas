@@ -1,6 +1,7 @@
 import HomeDepot
 #import Amazon_I1
 import Amazon
+import Walmart
 import logging
 from datetime import datetime
 import time
@@ -32,7 +33,7 @@ def clean_integ_dataframe(final_df):
 # Main function:
 def main(kw_str):
     global integ_data_frame
-    website = ["HD", "AM"]
+    website = ["HD", "AM", "WM"]
     status = []                 #For storing status codes
     # For logging
     curr_timestamp = datetime.now().strftime("%d%B%Y_%I%M%S%p")
@@ -64,8 +65,8 @@ def main(kw_str):
 
     time.sleep(0.5)
 
-    print "Scraping from both sites..."
-    logging.info("Scraping from both sites...")
+    print "Scraping from all sites..."
+    logging.info("Scraping from all sites...")
 
     print "Now scraping product information and reviews from HOMEDEPOT..."
     logging.info("Now scraping product information and reviews from HOMEDEPOT...")
@@ -85,6 +86,18 @@ def main(kw_str):
     integ_data_frame = integ_data_frame.append(returned_list_AM[0])
     status.append(returned_list_AM[1])
     status_dict = dict(zip(website, status))
+    
+    print "Status Code for Amazon: " + str(returned_list_AM[1])
+    
+    print "Now scraping product information and reviews from WALMART..."
+    logging.info("Now scraping product information and reviews from WALMART...")
+    returned_list_WM = Walmart.walmart_all_info(kw_str)
+
+    integ_data_frame = integ_data_frame.append(returned_list_WM[0])
+    status.append(returned_list_WM[1])
+    status_dict = dict(zip(website, status))
+    
+    print "Status Code for Walmart: " + str(returned_list_WM[1])
     '''
     if status_code == returned_list_AM[1]:
         status_code = returned_list_AM[1]
@@ -98,8 +111,6 @@ def main(kw_str):
             break
         else:
             status_code = value
-
-    print "Status Code for Amazon: " + str(returned_list_AM[1])
 
     final_data_frame1 = clean_integ_dataframe(integ_data_frame)
 
